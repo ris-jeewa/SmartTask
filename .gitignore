@@ -1,0 +1,13 @@
+.env
+.env.*
+
+# Ignore per-service local env files
+**/.env
+**/.env.*
+
+# Don't commit service runtime configuration (keep local)
+api-gateway/src/main/resources/application.properties
+user-service/src/main/resources/application.properties
+task-service/src/main/resources/application.properties
+notification-service/src/main/resources/application.properties
+

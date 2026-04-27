@@ -1,0 +1,30 @@
+server.port=8080
+spring.application.name=api-gateway
+
+# Routes
+spring.cloud.gateway.routes[0].id=user-service
+spring.cloud.gateway.routes[0].uri=http://localhost:8081
+spring.cloud.gateway.routes[0].predicates[0]=Path=/api/auth/**, /api/users/**
+
+spring.cloud.gateway.routes[1].id=task-service
+spring.cloud.gateway.routes[1].uri=http://localhost:8082
+spring.cloud.gateway.routes[1].predicates[0]=Path=/api/tasks/**
+
+spring.cloud.gateway.routes[2].id=notification-service
+spring.cloud.gateway.routes[2].uri=http://localhost:8083
+spring.cloud.gateway.routes[2].predicates[0]=Path=/api/notifications/**
+
+# CORS
+spring.cloud.gateway.globalcors.cors-configurations.[/**].allowedOrigins=http://localhost:5173
+spring.cloud.gateway.globalcors.cors-configurations.[/**].allowedMethods=GET,POST,PUT,PATCH,DELETE,OPTIONS
+spring.cloud.gateway.globalcors.cors-configurations.[/**].allowedHeaders=*
+spring.cloud.gateway.globalcors.cors-configurations.[/**].allowCredentials=true
+
+# JWT
+jwt.secret=${JWT_SECRET}
+jwt.expiration=900000
+
+# Actuator
+management.endpoints.web.exposure.include=health,info,prometheus
+management.endpoint.health.probes.enabled=true
+

@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Local runtime config (kept out of git)
+src/main/resources/application.properties
+.env
+.env.*
