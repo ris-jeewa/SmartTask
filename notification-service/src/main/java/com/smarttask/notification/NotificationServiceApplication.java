@@ -8,7 +8,7 @@ public class NotificationServiceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(NotificationServiceApplication.class, args);
-		system.out.println("hello notification service");
+		System.out.println("hello notification service");
 	}
 
 }
