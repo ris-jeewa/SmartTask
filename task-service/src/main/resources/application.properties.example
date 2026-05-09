@@ -1,7 +1,9 @@
-server.port=8082
-spring.application.name=task-service
+# Reference copy — the running app uses application.properties in this folder.
 
-# Azure PostgreSQL
+spring.application.name=task-service
+server.port=8082
+
+# Azure PostgreSQL (use sslmode=require for Azure Flexible Server)
 spring.datasource.url=${DB_URL_TASKS}
 spring.datasource.username=${DB_USERNAME}
 spring.datasource.password=${DB_PASSWORD}
@@ -18,7 +20,7 @@ spring.jpa.show-sql=false
 spring.jpa.open-in-view=false
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 
-# RabbitMQ
+# RabbitMQ (Day 4 consumers; excluded in tests)
 spring.rabbitmq.host=${RABBITMQ_HOST:localhost}
 spring.rabbitmq.port=${RABBITMQ_PORT:5672}
 spring.rabbitmq.username=${RABBITMQ_USERNAME:guest}
@@ -26,7 +28,7 @@ spring.rabbitmq.password=${RABBITMQ_PASSWORD:guest}
 spring.rabbitmq.listener.simple.retry.enabled=true
 spring.rabbitmq.listener.simple.retry.max-attempts=3
 
-# JWT
+# JWT (same secret as user-service for locally minted tokens; ≥32 UTF-8 bytes)
 jwt.secret=${JWT_SECRET}
 
 # Swagger
@@ -36,4 +38,3 @@ springdoc.swagger-ui.path=/swagger-ui.html
 # Actuator
 management.endpoints.web.exposure.include=health,info,prometheus
 management.endpoint.health.probes.enabled=true
-
