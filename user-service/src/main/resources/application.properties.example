@@ -38,4 +38,3 @@ springdoc.swagger-ui.path=/swagger-ui.html
 # Actuator
 management.endpoints.web.exposure.include=health,info,prometheus
 management.endpoint.health.probes.enabled=true
-
